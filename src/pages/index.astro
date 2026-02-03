@@ -1,0 +1,115 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+
+const pageTitle = "Astro Cloudflare Template";
+const env = import.meta.env.ENVIRONMENT || 'dev';
+---
+
+<Layout title={pageTitle}>
+  <div class="container mx-auto px-4 py-16">
+    <!-- Hero Section -->
+    <div class="text-center space-y-6 mb-16">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-6xl text-foreground">
+        Astro + Cloudflare
+        <span class="text-primary block mt-2">テンプレート</span>
+      </h1>
+      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+        高性能なWebアプリケーションを構築するためのモダンなテンプレート。
+        Tailwind CSSとshadcn/uiを使用した美しいUIを提供します。
+      </p>
+      <div class="flex justify-center gap-4">
+        <a href="/docs">
+          <Button size="lg">ドキュメント</Button>
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <Button variant="outline" size="lg">GitHub</Button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Environment Badge -->
+    <div class="flex justify-center mb-16">
+      <div class={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${
+        env === 'production' ? 'bg-green-100 text-green-800' : 
+        env === 'staging' ? 'bg-yellow-100 text-yellow-800' : 
+        'bg-blue-100 text-blue-800'
+      }`}>
+        <span class="w-2 h-2 rounded-full bg-current animate-pulse"></span>
+        現在の環境: <span class="font-bold">{env}</span>
+      </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <Card>
+        <CardHeader>
+          <CardTitle>🚀 Astro</CardTitle>
+          <CardDescription>高性能フレームワーク</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p class="text-sm text-muted-foreground">
+            ゼロJavaScriptのデフォルトで高速なWebサイトを構築
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>☁️ Cloudflare</CardTitle>
+          <CardDescription>エッジデプロイメント</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p class="text-sm text-muted-foreground">
+            グローバルエッジネットワークで高速な配信
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>🎨 Tailwind</CardTitle>
+          <CardDescription>ユーティリティファーストCSS</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p class="text-sm text-muted-foreground">
+            v4の新機能を活用したモダンなスタイリング
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>🧩 shadcn/ui</CardTitle>
+          <CardDescription>美しいコンポーネント</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p class="text-sm text-muted-foreground">
+            アクセシブルでカスタマイズ可能なUIコンポーネント
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+
+    <!-- Quick Start -->
+    <div class="mt-16 text-center">
+      <h2 class="text-2xl font-bold mb-4">クイックスタート</h2>
+      <div class="bg-muted p-6 rounded-lg max-w-2xl mx-auto text-left">
+        <pre class="text-sm overflow-x-auto"><code class="language-bash">
+# インストール
+npm install
+
+# 開発サーバー起動
+npm run dev
+
+# ビルド
+npm run build
+
+# デプロイ
+npm run deploy:staging
+        </code></pre>
+      </div>
+    </div>
+  </div>
+</Layout>

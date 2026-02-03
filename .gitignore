@@ -1,0 +1,32 @@
+# 依存関係
+node_modules/
+
+# ビルド出力
+dist/
+.astro/
+
+# 環境変数
+.env
+.env.local
+.env.*.local
+.dev.vars
+.dev.vars.*
+
+# ログ
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# エディタ
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Wrangler
+.wrangler/

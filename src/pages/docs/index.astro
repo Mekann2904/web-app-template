@@ -1,0 +1,91 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+
+const pageTitle = "ドキュメント";
+---
+
+<Layout title={pageTitle}>
+  <div class="container mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold mb-8">ドキュメント</h1>
+    
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl">
+      <a href="/docs/astro">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+          <CardHeader>
+            <CardTitle>Astro</CardTitle>
+            <CardDescription>フレームワークの使い方</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p class="text-sm text-muted-foreground">
+              Astroの基本概念、ページ作成、コンポーネントの使用方法
+            </p>
+          </CardContent>
+        </Card>
+      </a>
+
+      <a href="/docs/cloudflare">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+          <CardHeader>
+            <CardTitle>Cloudflare</CardTitle>
+            <CardDescription>デプロイと設定</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p class="text-sm text-muted-foreground">
+              Cloudflare Pagesへのデプロイ方法と環境設定
+            </p>
+          </CardContent>
+        </Card>
+      </a>
+
+      <a href="/docs/tailwind">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+          <CardHeader>
+            <CardTitle>Tailwind CSS</CardTitle>
+            <CardDescription>スタイリングガイド</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p class="text-sm text-muted-foreground">
+              Tailwind CSS v4の使い方と設定方法
+            </p>
+          </CardContent>
+        </Card>
+      </a>
+
+      <a href="/docs/shadcn">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+          <CardHeader>
+            <CardTitle>shadcn/ui</CardTitle>
+            <CardDescription>コンポーネントライブラリ</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p class="text-sm text-muted-foreground">
+              shadcn/uiコンポーネントの追加と使用方法
+            </p>
+          </CardContent>
+        </Card>
+      </a>
+
+      <a href="/docs/environments">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+          <CardHeader>
+            <CardTitle>環境設定</CardTitle>
+            <CardDescription>dev/staging/production</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p class="text-sm text-muted-foreground">
+              複数環境の設定方法と環境変数の管理
+            </p>
+          </CardContent>
+        </Card>
+      </a>
+    </div>
+
+    <div class="mt-8">
+      <a href="/">
+        <Button variant="outline">← トップページに戻る</Button>
+      </a>
+    </div>
+  </div>
+</Layout>

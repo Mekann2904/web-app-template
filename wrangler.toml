@@ -1,0 +1,75 @@
+#:schema node_modules/wrangler/config-schema.json
+# Cloudflare無料枠対応設定
+# 詳細は docs/free-tier.md を参照
+name = "astro-cloudflare-template"
+main = "./dist/_worker.js"
+compatibility_date = "2025-01-27"
+compatibility_flags = ["nodejs_compat"]
+
+# トップレベル設定（開発環境として機能）
+account_id = "your-account-id"
+vars = { ENVIRONMENT = "dev", DEBUG = "true" }
+
+# ステージング環境
+[env.staging]
+name = "astro-cloudflare-template-staging"
+vars = { ENVIRONMENT = "staging", DEBUG = "true" }
+
+# 本番環境
+[env.production]
+name = "astro-cloudflare-template-production"
+vars = { ENVIRONMENT = "production", DEBUG = "false" }
+
+# 非継承可能な設定（各環境で個別に設定）
+# バインディングは各環境で定義する必要がある
+
+# 開発環境用 KV
+[[kv_namespaces]]
+binding = "CACHE"
+id = "your-kv-namespace-id-dev"
+
+# ステージング環境用 KV
+[[env.staging.kv_namespaces]]
+binding = "CACHE"
+id = "your-kv-namespace-id-staging"
+
+# 本番環境用 KV
+[[env.production.kv_namespaces]]
+binding = "CACHE"
+id = "your-kv-namespace-id-production"
+
+# D1 データベース（開発）
+[[d1_databases]]
+binding = "DB"
+database_name = "astro-template-dev"
+database_id = "your-d1-database-id-dev"
+
+# D1 データベース（ステージング）
+[[env.staging.d1_databases]]
+binding = "DB"
+database_name = "astro-template-staging"
+database_id = "your-d1-database-id-staging"
+
+# D1 データベース（本番）
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "astro-template-production"
+database_id = "your-d1-database-id-production"
+
+# R2 ストレージ（開発）
+[[r2_buckets]]
+binding = "STORAGE"
+bucket_name = "astro-template-dev"
+
+# R2 ストレージ（ステージング）
+[[env.staging.r2_buckets]]
+binding = "STORAGE"
+bucket_name = "astro-template-staging"
+
+# R2 ストレージ（本番）
+[[env.production.r2_buckets]]
+binding = "STORAGE"
+bucket_name = "astro-template-production"
+
+# 環境変数（Secretsは wrangler secret put で設定）
+# 例：wrangler secret put API_KEY --env=production
