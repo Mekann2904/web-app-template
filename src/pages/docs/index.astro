@@ -11,8 +11,8 @@ const pageTitle = "ドキュメント";
     <h1 class="text-4xl font-bold mb-8">ドキュメント</h1>
     
     <div class="grid md:grid-cols-2 gap-6 max-w-4xl">
-      <a href="/docs/astro">
-        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+      <a href="/docs/astro" class="block">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer h-full">
           <CardHeader>
             <CardTitle>Astro</CardTitle>
             <CardDescription>フレームワークの使い方</CardDescription>
@@ -25,8 +25,8 @@ const pageTitle = "ドキュメント";
         </Card>
       </a>
 
-      <a href="/docs/cloudflare">
-        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+      <a href="/docs/cloudflare" class="block">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer h-full">
           <CardHeader>
             <CardTitle>Cloudflare</CardTitle>
             <CardDescription>デプロイと設定</CardDescription>
@@ -39,8 +39,8 @@ const pageTitle = "ドキュメント";
         </Card>
       </a>
 
-      <a href="/docs/tailwind">
-        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+      <a href="/docs/tailwind" class="block">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer h-full">
           <CardHeader>
             <CardTitle>Tailwind CSS</CardTitle>
             <CardDescription>スタイリングガイド</CardDescription>
@@ -53,8 +53,8 @@ const pageTitle = "ドキュメント";
         </Card>
       </a>
 
-      <a href="/docs/shadcn">
-        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+      <a href="/docs/shadcn" class="block">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer h-full">
           <CardHeader>
             <CardTitle>shadcn/ui</CardTitle>
             <CardDescription>コンポーネントライブラリ</CardDescription>
@@ -67,8 +67,8 @@ const pageTitle = "ドキュメント";
         </Card>
       </a>
 
-      <a href="/docs/environments">
-        <Card class="hover:bg-muted/50 transition-colors cursor-pointer">
+      <a href="/docs/environments" class="block">
+        <Card class="hover:bg-muted/50 transition-colors cursor-pointer h-full">
           <CardHeader>
             <CardTitle>環境設定</CardTitle>
             <CardDescription>dev/staging/production</CardDescription>
@@ -83,9 +83,9 @@ const pageTitle = "ドキュメント";
     </div>
 
     <div class="mt-8">
-      <a href="/">
-        <Button variant="outline">← トップページに戻る</Button>
-      </a>
+      <Button asChild variant="outline">
+        <a href="/">← トップページに戻る</a>
+      </Button>
     </div>
   </div>
 </Layout>
